@@ -6,8 +6,8 @@ Gem::Specification.new do |gem|
 
   gem.authors       = ["Wlodek Bzyl"]
   gem.email         = ["matwb@ug.edu.pl"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Write a gem description}
+  gem.summary       = %q{Write a gem summary}
   gem.homepage      = "http://tao.inf.ug.edu.pl"
 
   gem.files         = `git ls-files`.split($\)
@@ -16,11 +16,11 @@ Gem::Specification.new do |gem|
 
   gem.name          = "sinatra-blog"
   gem.require_paths = ["lib"]
-  gem.version       = "0.0.1"
+  gem.version       = "0.0.4"
 
-# s.add_runtime_dependency 'sinatra'
-  s.add_runtime_dependency 'rdiscount'
-  s.add_runtime_dependency 'erubis'
-  s.add_runtime_dependency 'coderay'
+  gem.add_runtime_dependency 'sinatra'
+  gem.add_runtime_dependency 'rdiscount'
+  gem.add_runtime_dependency 'erubis'
+  gem.add_runtime_dependency 'coderay'
 
 end
