@@ -61,7 +61,7 @@ class SinatraBlog < Sinatra::Base
 
     @title = dirname.split('/').join(' » ')
 
-    @filename = File.expand_path(File.join(settings.root, 'doc', dirname, filename))
+    @filename = File.expand_path(File.join(settings.root, 'pp', dirname, filename))
 
     lang = translate[extname] || 'plain_text'
 
