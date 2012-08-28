@@ -68,8 +68,6 @@ class SinatraBlog < Sinatra::Base
     extname = params[:captures][2]
     filename = name + "." + extname
 
-    # TODO: replace WB@Rails4 with something meaningful
-
     @title = dirname.split('/').join(' » ')
 
     @filename = File.expand_path(File.join(File.dirname(__FILE__), 'doc', dirname, filename))
