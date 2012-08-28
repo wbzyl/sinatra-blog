@@ -8,18 +8,18 @@ require 'sinatra/base'
 
 class SinatraBlog < Sinatra::Base
 
-  settings.static = true
+  # configure :development do
+  # end
+  # configure :production do
+  # end
 
   set :erb, :pattern => '\{% %\}', :trim => true
   set :markdown, :layout => false
 
-  configure :development do
-    enable :logging
-  end
+  set :show_exceptions, false
+  set :logging, true
 
-  configure :production do
-    set :show_exceptions, false
-  end
+  settings.static = true
 
   get '/' do
     erb(markdown(:main))
