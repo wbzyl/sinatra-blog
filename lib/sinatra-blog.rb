@@ -72,6 +72,8 @@ class SinatraBlog < Sinatra::Base
 
     @filename = File.expand_path(File.join(File.dirname(__FILE__), 'doc', dirname, filename))
 
+    STDOUT.puts @filename
+
     lang = translate[extname] || 'plain_text'
 
     if File.exists?(@filename) && File.readable?(@filename)
