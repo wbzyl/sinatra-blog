@@ -8,22 +8,23 @@ require 'sinatra/base'
 
 class SinatraBlog < Sinatra::Base
 
-  # configure :development do
-  #   enable :logging
-  # end
+  configure :development do
+    enable :logging
+   end
 
   configure :production do
     disable :raise_errors
   end
 
-  # set :show_exceptions, false
-  # set :logging, true
-
   set :erb, :pattern => '\{% %\}', :trim => true
   set :markdown, :layout => false
 
-  # settings.static = true
   # enable :static  # is enabled by default when the public directory exists
+
+  # get "/" do
+  #   "settings.root: #{settings.root}"
+  #   "settings.root: #{settings.markdown}"
+  # end
 
   get '/' do
     erb(markdown(:main))
@@ -69,7 +70,7 @@ class SinatraBlog < Sinatra::Base
 
     # TODO: replace WB@Rails4 with something meaningful
 
-    @title =  'WB@Rails4' + dirname.split('/').join(' » ')
+    @title = dirname.split('/').join(' » ')
 
     @filename = File.expand_path(File.join(File.dirname(__FILE__), 'doc', dirname, filename))
 
@@ -85,13 +86,5 @@ class SinatraBlog < Sinatra::Base
 
     erb content, :layout => :code
   end
-
-  # get "/" do
-  #   "settings.root: #{settings.root}\nsettings.views: #{settings.views}"
-  # end
-
-  # get "/index" do
-  #   erb :index
-  # end
 
 end
