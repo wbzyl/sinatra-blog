@@ -34,15 +34,6 @@ class SinatraBlog < Sinatra::Base
     erb(markdown(:"#{params[:section]}"))
   end
 
-  not_found do
-    'This is nowhere to be found.'
-  end
-
-  error do
-    'Sorry there was a nasty error – ' + env['sinatra.error'].name
-  end
-
-
   # TODO: prettyprint file contents located in 'doc' directory
 
   get %r{^([-_\w\/]+)\/([-_\w]+)\.((\w{1,4})(\.\w{1,4})?)$} do
@@ -72,8 +63,6 @@ class SinatraBlog < Sinatra::Base
 
     @filename = File.expand_path(File.join(File.dirname(__FILE__), 'doc', dirname, filename))
 
-    STDOUT.puts @filename
-
     lang = translate[extname] || 'plain_text'
 
     if File.exists?(@filename) && File.readable?(@filename)
@@ -81,10 +70,21 @@ class SinatraBlog < Sinatra::Base
       content += "<pre><code>:::#{lang}\n#{escape_html(File.read @filename)}</code></pre>"
       #content += "<pre><code>:::#{lang}\n#{File.read(@filename)}</code></pre>"
     else
-      content = "<h2>oops! couldn't find <em>#{filename}</em></h2>"
+      content  = "<h2> oops! couldn't find <em>#{filename}</em></h2>"
+      content += "<h2> oops! couldn't find <em>#{@filename}</em></h2>"
+      content += "<h2> #{settings.app_file}</h2>"
     end
 
     erb content, :layout => :code
+  end
+
+
+  not_found do
+    'This is nowhere to be found.'
+  end
+
+  error do
+    'Sorry there was a nasty error – ' + env['sinatra.error'].name
   end
 
 end
