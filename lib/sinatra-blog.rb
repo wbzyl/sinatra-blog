@@ -71,9 +71,9 @@ class SinatraBlog < Sinatra::Base
       #content += "<pre><code>:::#{lang}\n#{File.read(@filename)}</code></pre>"
     else
       content  = "<h2> oops! couldn't find <em>#{filename}</em></h2>"
-      content += "<h2> oops! couldn't find <em>#{@filename}</em></h2>"
-      content += "<h2>     root: #{settings.root}</h2>"
-      content += "<h2> app_file: #{settings.app_file}</h2>"
+      content += "<h2> @filename: #{@filename}</h2>"
+      content += "<h2>      root: #{settings.root}</h2>"
+      content += "<h2>  app_file: #{settings.app_file}</h2>"
     end
 
     erb content, :layout => :code
