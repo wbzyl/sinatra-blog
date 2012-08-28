@@ -9,17 +9,19 @@ require 'sinatra/base'
 class SinatraBlog < Sinatra::Base
 
   # configure :development do
+  #   enable :logging
   # end
   # configure :production do
   # end
 
+  # set :show_exceptions, false
+  # set :logging, true
+
   set :erb, :pattern => '\{% %\}', :trim => true
   set :markdown, :layout => false
 
-  set :show_exceptions, false
-  set :logging, true
-
-  settings.static = true
+  # settings.static = true
+  # enable :static  # is enabled by default when the public directory exists
 
   get '/' do
     erb(markdown(:main))
