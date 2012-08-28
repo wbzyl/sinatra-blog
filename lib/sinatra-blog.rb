@@ -17,6 +17,9 @@ class SinatraBlog < Sinatra::Base
     enable :logging
   end
 
+  configure :production do
+    set :show_exceptions, false
+  end
 
   get '/' do
     erb(markdown(:main))
@@ -26,10 +29,12 @@ class SinatraBlog < Sinatra::Base
     erb(markdown(:"#{params[:section]}"))
   end
 
+  not_found do
+    'This is nowhere to be found.'
+  end
+
   error do
-    e = request.env['sinatra.error']
-    Kernel.puts e.backtrace.join("\n")
-    'Application error'
+    'Sorry there was a nasty error – ' + env['sinatra.error'].name
   end
 
 
