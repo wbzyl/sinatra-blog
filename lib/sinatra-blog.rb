@@ -10,7 +10,7 @@ class SinatraBlog < Sinatra::Base
 
   configure :development do
     enable :logging
-   end
+  end
 
   configure :production do
     disable :raise_errors
