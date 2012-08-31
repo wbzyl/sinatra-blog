@@ -16,7 +16,7 @@ class SinatraBlog < Sinatra::Base
     disable :raise_errors
   end
 
-  set :erb, :pattern => '\{% %\}', :trim => true
+  set :erubis, :pattern => '\{% %\}', :trim => true
   set :markdown, :layout => false
 
   # enable :static  # is enabled by default when the public directory exists
