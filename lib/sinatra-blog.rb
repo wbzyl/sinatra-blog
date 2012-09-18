@@ -34,7 +34,7 @@ class SinatraBlog < Sinatra::Base
     erb(markdown(:"#{params[:section]}"))
   end
 
-  # TODO: prettyprint file contents located in 'doc' directory
+  # prettyprint file contents located in 'pp' directory
 
   get %r{^([-_\w\/]+)\/([-_\w]+)\.((\w{1,4})(\.\w{1,4})?)$} do
 
@@ -42,6 +42,7 @@ class SinatraBlog < Sinatra::Base
       'html.erb' => 'erb',
       'text.erb' => 'text',
       'erb' => 'erb',
+      'html' => 'html',
       'rb' => 'ruby',
       'ru' => 'ruby',
       'js' => 'javascript',
