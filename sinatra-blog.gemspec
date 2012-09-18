@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
 
   gem.name          = "sinatra-blog"
   gem.require_paths = ["lib"]
-  gem.version       = "0.0.8"
+  gem.version       = "0.1.0"
 
   gem.add_runtime_dependency 'sinatra'
   gem.add_runtime_dependency 'rdiscount'
