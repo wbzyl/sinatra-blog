@@ -1,6 +1,6 @@
 # Sinatra Blog
 
-## Passenger + Nginx Instalation
+## Passenger + Nginx Installation
 
 Clone the Passenger repo::
 
@@ -152,6 +152,16 @@ http {
 }
 ```
 
+Modify (add) to /etc/hosts*:
+
+```
+# Do not remove the following line, or various programs
+# that require network functionality will fail.
+127.0.0.1	localhost.localdomain	localhost
+::1	localhost6.localdomain6	localhost6
+# my local blogs
+127.0.0.1	sinatra.local
+```
 
 
 ## Contributing
